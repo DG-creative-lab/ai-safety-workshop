@@ -1,0 +1,55 @@
+version: 1
+profile: workshop-safe-shell
+description: >
+  Portable zero-trust policy for coding agents. The agent may propose actions,
+  but execution is only permitted when the gateway and sandbox both agree.
+
+allowed_commands:
+  - pytest
+  - git status
+  - git diff
+  - ls
+  - cat
+  - sed
+  - rg
+  - grep
+
+blocked_patterns:
+  - "rm -rf"
+  - "mkfs"
+  - "dd .* of=/dev/"
+  - "git reset --hard"
+  - "git push --force"
+  - "curl .*@.env"
+  - "wget .*@.env"
+  - "cat /etc/passwd"
+
+allowed_paths:
+  - "/workspace/project"
+  - "/workspace/project/tests"
+  - "/workspace/project/src"
+  - "/workspace/project/docs"
+
+read_only_paths:
+  - "/workspace/project/.git"
+
+blocked_paths:
+  - "/etc"
+  - "/var"
+  - "/home"
+  - "/dev"
+
+network:
+  enabled: false
+  allowlist: []
+
+secrets:
+  expose_raw_values_to_model: false
+  allowed_secret_handles:
+    - GITHUB_TOKEN_HANDLE
+    - CI_LOGS_HANDLE
+
+execution:
+  require_explicit_explanations: true
+  log_all_denials: true
+  require_harness_tests_for_new_tools: true
