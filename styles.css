@@ -482,6 +482,8 @@ pre {
 
 .danger-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.75rem;
+  row-gap: 1.5rem;
 }
 
 .danger-item {
