@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Just Read The Documentation</title>
+    <meta
+      name="description"
+      content="A playful landing page for AI safety workshops, featuring an animated head-scratching character and a very direct reminder."
+    />
+    <meta name="theme-color" content="#f4efe3" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-left"></div>
+      <div class="ambient ambient-right"></div>
+
+      <main class="hero">
+        <section class="hero-copy">
+          <p class="eyebrow">AI Safety Workshop Teaser</p>
+          <h1>Just read the documentation.</h1>
+          <p class="lede">
+            Before anyone launches a general deployment workflow with an AI assistant and a dangerous amount of confidence,
+            maybe start with the docs, a checklist, and a healthy fear of <code>rm -rf</code>.
+          </p>
+
+          <div class="cta-row">
+            <a class="button primary" href="#documentation-rant">Read the obvious advice</a>
+          </div>
+
+          <ul class="warning-strip" aria-label="Safety reminders">
+            <li>Don't run commands you don't understand.</li>
+            <li>Don't paste secrets into chat tools.</li>
+            <li>Don't deploy from vibes alone.</li>
+          </ul>
+        </section>
+
+        <section class="hero-visual" id="scratch-zone" aria-labelledby="scratch-heading">
+          <div class="visual-card">
+            <div class="bubble bubble-top">Wait... this is the prod workflow?</div>
+            <img
+              class="scratch-figure"
+              src="./monkey-scratch-head.gif"
+              alt="A confused character scratching their head"
+              width="520"
+              height="520"
+            />
+            <div class="bubble bubble-bottom">Maybe ask the docs before asking the robot.</div>
+          </div>
+        </section>
+      </main>
+
+      <section class="doc-rant" id="documentation-rant">
+        <div class="card">
+          <p class="card-label">Workshop premise</p>
+          <h2>AI tools are great. Random terminal bravery is not.</h2>
+          <p>
+            This page is intentionally silly, but the workshop behind it should be strict about safe defaults:
+            check the docs first, understand the workflow you are invoking, work in the right environment, and avoid commands that mutate systems unless you know the blast radius.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
