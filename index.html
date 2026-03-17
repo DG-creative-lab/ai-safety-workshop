@@ -34,6 +34,7 @@
 
           <div class="cta-row">
             <a class="button primary" href="#documentation-rant">Read the obvious advice</a>
+            <a class="button danger" href="#danger-zone">Danger zone commands</a>
           </div>
 
           <ul class="warning-strip" aria-label="Safety reminders">
@@ -66,6 +67,67 @@
             This page is intentionally silly, but the workshop behind it should be strict about safe defaults:
             check the docs first, understand the workflow you are invoking, work in the right environment, and avoid commands that mutate systems unless you know the blast radius.
           </p>
+        </div>
+      </section>
+
+      <section class="danger-zone" id="danger-zone">
+        <div class="danger-intro card danger-card">
+          <p class="card-label">Danger Zone</p>
+          <h2>Commands that can ruin your day fast.</h2>
+          <p>
+            These are not "cool power user" shortcuts. They are examples of commands that can delete files, rewrite history,
+            damage disks, leak credentials, or mutate the wrong environment if someone copies them blindly from an AI answer.
+          </p>
+        </div>
+
+        <div class="danger-grid">
+          <article class="danger-item card">
+            <p class="danger-tag">File deletion</p>
+            <h3><code>rm -rf</code></h3>
+            <p>Recursively deletes files and folders without asking. Run in the wrong place and you can wipe a project or much more.</p>
+          </article>
+
+          <article class="danger-item card">
+            <p class="danger-tag">Disk overwrite</p>
+            <h3><code>dd if=... of=/dev/diskX</code></h3>
+            <p>Writes raw data directly to a disk device. One wrong target can destroy a drive or partition table.</p>
+          </article>
+
+          <article class="danger-item card">
+            <p class="danger-tag">Filesystem format</p>
+            <h3><code>mkfs</code> / <code>diskutil eraseDisk</code></h3>
+            <p>Formats a volume. Useful on purpose, catastrophic when aimed at the wrong disk.</p>
+          </article>
+
+          <article class="danger-item card">
+            <p class="danger-tag">Ownership and permissions</p>
+            <h3><code>chmod -R</code> / <code>chown -R</code></h3>
+            <p>Changes access rules across entire directories. Bad recursion can lock users out or expose sensitive files.</p>
+          </article>
+
+          <article class="danger-item card">
+            <p class="danger-tag">Git history rewrite</p>
+            <h3><code>git reset --hard</code></h3>
+            <p>Throws away local tracked changes and resets the checkout. Great for accidents, terrible for uncommitted work.</p>
+          </article>
+
+          <article class="danger-item card">
+            <p class="danger-tag">Untracked file purge</p>
+            <h3><code>git clean -fd</code></h3>
+            <p>Deletes untracked files and folders. Easy way to remove generated junk, easy way to remove valuable local files too.</p>
+          </article>
+
+          <article class="danger-item card">
+            <p class="danger-tag">Remote overwrite</p>
+            <h3><code>git push --force</code></h3>
+            <p>Rewrites branch history on the remote. Used carelessly, it can erase teammates' commits from shared branches.</p>
+          </article>
+
+          <article class="danger-item card">
+            <p class="danger-tag">Secret exposure</p>
+            <h3><code>env</code>, <code>printenv</code>, <code>cat .env</code></h3>
+            <p>These can dump tokens, API keys, passwords, and internal endpoints into logs, screenshots, or AI chat transcripts.</p>
+          </article>
         </div>
       </section>
     </div>

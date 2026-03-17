@@ -148,6 +148,12 @@ code {
   background: rgba(255, 255, 255, 0.42);
 }
 
+.button.danger {
+  color: #fff7f1;
+  background: linear-gradient(135deg, #d95d39, #b23a48);
+  box-shadow: 0 16px 30px rgba(178, 58, 72, 0.22);
+}
+
 .warning-strip {
   display: flex;
   flex-wrap: wrap;
@@ -400,6 +406,47 @@ code {
   100%      { opacity: 0; transform: translate(300px, 44px) scale(0.72); }
 }
 
+
+.danger-zone {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0 0 5rem;
+}
+
+.danger-card {
+  background: linear-gradient(160deg, rgba(255, 246, 240, 0.92), rgba(255, 236, 227, 0.88));
+}
+
+.danger-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.danger-item {
+  min-height: 100%;
+  border-color: rgba(178, 58, 72, 0.12);
+}
+
+.danger-tag {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #b23a48;
+}
+
+.danger-item h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.danger-item p:last-child {
+  margin-top: 0.9rem;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -437,7 +484,8 @@ code {
 
 @media (max-width: 640px) {
   .hero,
-  .doc-rant {
+  .doc-rant,
+  .danger-zone {
     width: min(100% - 1.25rem, 1180px);
   }
 
